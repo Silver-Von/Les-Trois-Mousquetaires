@@ -1,0 +1,30 @@
+@font-face {
+	font-family: 'MS Sans Serif';
+	src: url(assets/mss.ttf);
+}
+
+*,
+*::before,
+*::after {
+	font-family: 'MS Sans Serif';
+	font-size: 62.5%;
+
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* :focus {
+	outline: none !important;
+}
+
+body {
+	background-color: #047c84;
+}

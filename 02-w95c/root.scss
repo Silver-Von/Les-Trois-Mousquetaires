@@ -1,0 +1,278 @@
+@import 'assets/sass/global', 'assets/sass/mixin', 'assets/sass/variables';
+
+// APP
+#app {
+	width: 552px;
+	height: 544px;
+	background-color: $c-gray-app;
+
+	@include center;
+	@include embossed(0, 3px, 3px, 3px);
+
+	:nth-child(n) {
+		position: relative;
+	}
+
+	// BAR
+	.bar {
+		width: 540px;
+		height: 36px;
+		background-color: $c-blue-bar;
+
+		top: 6px;
+		left: 6px;
+		z-index: 1;
+
+		&::before {
+			content: '';
+			width: 32px;
+			height: 24px;
+			background-image: url(assets/images/icon.svg);
+			background-size: contain;
+
+			position: absolute;
+			top: 6px;
+			left: 4px;
+		}
+
+		&::after {
+			content: 'Calculator';
+			font-size: 2.2rem;
+			font-weight: 600;
+			letter-spacing: 2px;
+			color: $c-white;
+
+			position: absolute;
+			top: 6px;
+			left: 42px;
+		}
+
+		.window-control-buttons {
+			width: 100px;
+			height: 28px;
+
+			position: absolute;
+			top: 4px;
+			right: 4px;
+
+			display: flex;
+			flex-direction: row;
+
+			:nth-child(n) {
+				@include buttons(32px, 100%, small);
+
+				background-size: contain;
+
+				&:nth-child(1) {
+					background-image: url(assets/images/btn-min.svg);
+				}
+
+				&:nth-child(2) {
+					background-image: url(assets/images/btn-max.svg);
+				}
+
+				&:nth-child(3) {
+					background-image: url(assets/images/btn-close.svg);
+
+					position: absolute;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	// MENU
+	.menu {
+		width: 196px;
+		height: 36px;
+
+		position: absolute;
+		top: 44px;
+		left: 6px;
+		z-index: 1;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		:nth-child(n) {
+			width: calc(196px / 3);
+			height: 100%;
+			background: none;
+			border: none;
+
+			font-size: 2.1rem;
+			letter-spacing: 0.1rem;
+			color: $c-black;
+
+			padding-left: 4px;
+
+			&::first-letter {
+				text-decoration: underline;
+			}
+
+			&:active {
+				background-color: $c-blue-bar;
+				color: $c-white;
+			}
+		}
+	}
+
+	// DIVIDE LINE
+	.divide-line {
+		width: 536px;
+		height: 4px;
+		background-color: $c-white;
+
+		top: 56px;
+		left: 8px;
+
+		&::before {
+			content: '';
+			width: 100%;
+			height: 2px;
+			background-color: $c-gray-bar;
+
+			position: absolute;
+		}
+	}
+
+	// NUMBER SCREEN
+	.screen-number {
+		width: 498px;
+		height: 54px;
+		background-color: $c-white;
+
+		top: 82px;
+		left: 28px;
+
+		@include debossed(0, 2px, 2px, 2px);
+
+		:nth-child(n) {
+			font-size: 2.2rem;
+			line-height: 54px;
+			color: $c-black;
+
+			position: absolute;
+			right: 14px;
+		}
+	}
+
+	// MEMORY SCREEN
+	.screen-memory {
+		width: 72px;
+		height: 54px;
+
+		top: 93px;
+		left: 28px;
+
+		@include debossed(0, 2px, 2px, 2px);
+
+		:nth-child(n) {
+			font-size: 2.4rem;
+			font-weight: thin;
+			line-height: 58px;
+			text-align: center;
+
+			color: $c-black;
+
+			padding-left: 2px;
+		}
+	}
+
+	// MEMORY BUTTONS
+	.memory-buttons {
+		width: 72px;
+		height: 260px;
+
+		top: 106px;
+		left: 28px;
+		z-index: 1;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		:nth-child(n) {
+			@include buttons(72px, 56px, big);
+			color: $c-red-operator;
+			letter-spacing: 0.2rem;
+		}
+	}
+
+	// INITIAL BUTTONS
+	.cleansing-buttons {
+		width: 312px;
+		height: 58px;
+
+		position: absolute;
+		top: 184px;
+		right: 28px;
+		z-index: 1;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		:nth-child(n) {
+			@include buttons(100px, 58px, big);
+			color: $c-red-initial;
+			letter-spacing: 0.2rem;
+		}
+	}
+
+	// CALCULATE BUTTONS
+	.calculate-buttons {
+		width: 394px;
+		height: 258px;
+
+		position: absolute;
+		top: 254px;
+		right: 26px;
+		z-index: 1;
+
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-auto-rows: minmax(8px, auto);
+		gap: 14px 6px;
+
+		:nth-child(n) {
+			@include buttons(72px, 56px, big);
+
+			letter-spacing: 0.2rem;
+
+			&:nth-child(-n + 3),
+			&:nth-child(n + 6):nth-child(-n + 8),
+			&:nth-child(n + 11):nth-child(-n + 13),
+			&:nth-child(n + 16):nth-child(-n + 18) {
+				color: $c-blue-number;
+			}
+
+			&:nth-child(4),
+			&:nth-child(9),
+			&:nth-child(14),
+			&:nth-child(19),
+			&:nth-child(20) {
+				letter-spacing: -2px;
+				color: $c-red-operator;
+			}
+
+			&:nth-child(5),
+			&:nth-child(10),
+			&:nth-child(15) {
+				color: $c-blue-operator;
+			}
+		}
+	}
+}
+
+/* .image {
+	width: 552px;
+	height: 544px;
+	background-image: url(assets/images/calculator.png);
+	background-size: contain;
+
+	@include center;
+
+	opacity: 0.5;
+} */

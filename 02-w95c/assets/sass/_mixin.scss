@@ -1,0 +1,114 @@
+// CREATE BUTTONS
+@mixin buttons($width, $height, $size) {
+	width: $width;
+	height: $height;
+	background-color: $c-gray-app;
+	border: none;
+
+	font-size: 2.4rem;
+	font-weight: bolder;
+
+	padding-top: 4px;
+	padding-left: 4px;
+
+	&:active {
+		padding-top: 2px;
+		padding-left: 6px;
+
+		background-position-x: 2px;
+		background-position-y: 2px;
+	}
+
+	@if $size == big {
+		@include embossed(0, 2px, 2px, 2px);
+
+		&:active {
+			@include debossed(0, 2px, 2px, 2px);
+		}
+	} @else if $size == small {
+		@include embossed(0, 1px, 1px, 1px);
+
+		&:active {
+			@include debossed(0, 1px, 1px, 1px);
+		}
+	}
+}
+
+// BEVEL BY BORDER
+@mixin embossed($b-p, $b-b, $a-p, $a-b) {
+	&::before {
+		content: '';
+
+		position: absolute;
+		left: $b-p;
+		right: $b-p;
+		top: $b-p;
+		bottom: $b-p;
+
+		border-top: $b-b solid $c-light-gray;
+		border-left: $b-b solid $c-light-gray;
+		border-right: $b-b solid $c-black;
+		border-bottom: $b-b solid $c-black;
+	}
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		left: $a-p;
+		right: $a-p;
+		top: $a-p;
+		bottom: $a-p;
+
+		border-top: $a-b solid $c-white;
+		border-left: $a-b solid $c-white;
+		border-right: $a-b solid $c-dark-gray;
+		border-bottom: $a-b solid $c-dark-gray;
+	}
+}
+
+@mixin debossed($b-p, $b-b, $a-p, $a-b) {
+	&::before {
+		content: '';
+
+		position: absolute;
+		left: $b-p;
+		right: $b-p;
+		top: $b-p;
+		bottom: $b-p;
+
+		border-top: $a-b solid $c-dark-gray;
+		border-left: $a-b solid $c-dark-gray;
+		border-right: $a-b solid $c-white;
+		border-bottom: $a-b solid $c-white;
+	}
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		left: $a-p;
+		right: $a-p;
+		top: $a-p;
+		bottom: $a-p;
+
+		border-top: $b-b solid $c-black;
+		border-left: $b-b solid $c-black;
+		border-right: $b-b solid $c-light-gray;
+		border-bottom: $b-b solid $c-light-gray;
+	}
+}
+
+// BEVEL BY BOX-SHADOW
+@mixin bevel-blur($tint, $shade, $blur) {
+	box-shadow: inset $tint $tint $blur rgba($c-white, 0.75),
+		inset $shade $shade $blur rgba($c-black, 0.75);
+}
+
+// MOVE TO CENTER
+@mixin center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

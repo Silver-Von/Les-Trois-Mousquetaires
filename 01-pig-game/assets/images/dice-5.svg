@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>5</title>
+    <desc>Created with Sketch.</desc>
+    <g id="5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#F6F6F6" x="0" y="0" width="256" height="256"></rect>
+        <circle id="Oval-Copy" fill="#242424" cx="192" cy="192" r="24"></circle>
+        <circle id="Oval-Copy-3" fill="#242424" cx="192" cy="64" r="24"></circle>
+        <circle id="Oval-Copy-2" fill="#242424" cx="64" cy="192" r="24"></circle>
+        <circle id="Oval-Copy-4" fill="#242424" cx="64" cy="64" r="24"></circle>
+        <circle id="Oval" fill="#242424" cx="128" cy="128" r="24"></circle>
+    </g>
+</svg>

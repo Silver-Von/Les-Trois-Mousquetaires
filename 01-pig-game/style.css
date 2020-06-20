@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-family: "Gochi Hand", cursive;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+body {
+  background-color: #eed1bf;
+}
+
+/* ----------------------------- Corner (ul ur) ----------------------------- */
+.corner-ul-ur {
+  visibility: hidden;
+  width: 880px;
+  height: 616px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.corner-ul-ur::after, .corner-ul-ur::before {
+  visibility: visible;
+  content: "";
+  width: 96px;
+  height: 40px;
+  background-color: #eed1bf;
+  position: absolute;
+  top: -4px;
+  box-shadow: 0 8px 12px -14px rgba(0, 0, 0, 0.8);
+}
+.corner-ul-ur::after {
+  left: -48px;
+  transform: rotate(-45deg);
+}
+.corner-ul-ur::before {
+  right: -48px;
+  transform: rotate(45deg);
+}
+
+/* ----------------------------- Corner (bl br) ----------------------------- */
+.corner-bl-br {
+  visibility: hidden;
+  width: 880px;
+  height: 616px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.corner-bl-br::after, .corner-bl-br::before {
+  visibility: visible;
+  content: "";
+  width: 96px;
+  height: 40px;
+  background-color: #eed1bf;
+  position: absolute;
+  top: 612px;
+  box-shadow: 0 8px 12px -14px rgba(0, 0, 0, 0.8);
+}
+.corner-bl-br::after {
+  left: -48px;
+  transform: rotate(225deg);
+}
+.corner-bl-br::before {
+  right: -48px;
+  transform: rotate(-225deg);
+}
+
+/* ---------------------------------- Paper --------------------------------- */
+.paper {
+  width: 880px;
+  height: 616px;
+  background-color: #f6f6f6;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 16px;
+}
+
+/* ---------------------------------- Title --------------------------------- */
+.title {
+  font-size: 4rem;
+  color: #242424;
+  position: relative;
+  text-align: center;
+  top: -88px;
+}
+
+/* --------------------------------- Players -------------------------------- */
+.players {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+}
+.players #player-1,
+.players #player-2 {
+  width: 50%;
+  height: 100%;
+}
+
+.current-player {
+  background-color: #f0f0f0;
+  color: #414141 !important;
+}
+
+.winner {
+  color: #e63543 !important;
+}
+
+#player-1,
+#player-2 {
+  color: #b6b6b6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#player-1 #p1-name,
+#player-1 #p2-name,
+#player-2 #p1-name,
+#player-2 #p2-name {
+  font-size: 3rem;
+  margin-top: 4rem;
+}
+#player-1 #p1-total-points,
+#player-1 #p2-total-points,
+#player-2 #p1-total-points,
+#player-2 #p2-total-points {
+  font-size: 6rem;
+}
+#player-1 .p1-current,
+#player-1 .p2-current,
+#player-2 .p1-current,
+#player-2 .p2-current {
+  width: 8rem;
+  height: 6rem;
+  border: 0.1rem solid;
+  border-radius: 0.25rem;
+  margin-top: 12rem;
+}
+#player-1 .p1-current::before,
+#player-1 .p2-current::before,
+#player-2 .p1-current::before,
+#player-2 .p2-current::before {
+  content: "CURRENT";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+#player-1 .p1-current #p1-current-points,
+#player-1 .p1-current #p2-current-points,
+#player-1 .p2-current #p1-current-points,
+#player-1 .p2-current #p2-current-points,
+#player-2 .p1-current #p1-current-points,
+#player-2 .p1-current #p2-current-points,
+#player-2 .p2-current #p1-current-points,
+#player-2 .p2-current #p2-current-points {
+  font-size: 3rem;
+  font-weight: 100;
+  text-align: center;
+}
+
+/* --------------------------------- Buttons -------------------------------- */
+.buttons {
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 24rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttons .btn-roll,
+.buttons .btn-hold,
+.buttons .btn-new {
+  width: 100%;
+  font-size: 1.4rem;
+  background-color: #f6f6f6;
+  color: #414141;
+  box-shadow: 0 8px 8px -4px #b6b6b6;
+  border: 0.1rem solid #414141;
+  border-radius: 0.8rem;
+  transform-origin: 50%, 50%;
+}
+.buttons .btn-roll:hover,
+.buttons .btn-hold:hover,
+.buttons .btn-new:hover {
+  background-color: #414141;
+  color: #f6f6f6;
+  cursor: pointer;
+}
+.buttons .btn-roll:active,
+.buttons .btn-hold:active,
+.buttons .btn-new:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+.disabled-button {
+  color: #b6b6b6 !important;
+  box-shadow: none !important;
+  border: 0.1rem solid #b6b6b6 !important;
+}
+.disabled-button:hover {
+  background-color: #f6f6f6 !important;
+  color: #b6b6b6 !important;
+  cursor: default !important;
+}
+
+/* ---------------------------------- Dice ---------------------------------- */
+#dice {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px #b6b6b6, 0px 16px 32px -4px #b6b6b6;
+  position: relative;
+  top: 96px;
+  left: 50%;
+  transform: translate(-50%);
+}

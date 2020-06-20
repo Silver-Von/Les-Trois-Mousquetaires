@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="52px" viewBox="0 0 64 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Artboard Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" x="0" y="0" width="64" height="52"></rect>
+        <path d="M48,10 L48,44 L14,44 L14,10 L48,10 Z M45,17 L17,17 L17,41 L45,41 L45,17 Z" id="Shape" fill="#808080"></path>
+        <polygon id="Path" fill="#EFEFEF" points="45 17 45 21 21 21 21 41 17 41 17 17"></polygon>
+        <polygon id="Path-Copy" fill="#EFEFEF" transform="translate(33.000000, 29.000000) rotate(180.000000) translate(-33.000000, -29.000000) " points="52 10 52 14 18 14 18 48 14 48 14 10"></polygon>
+    </g>
+</svg>

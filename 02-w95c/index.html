@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Windows 95 Calculator</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="app.js" defer></script>
+</head>
+
+<body>
+	<div id="app">
+		<div class="bar">
+			<div class="window-control-buttons">
+				<button id="min"></button>
+				<button id="max" disabled></button>
+				<button id="close"></button>
+			</div>
+		</div>
+
+		<div class="menu">
+			<button id="edit">Edit</button>
+			<button id="view">View</button>
+			<button id="help">Help</button>
+		</div>
+
+		<div class="divide-line"></div>
+
+		<div class="screen-number">
+			<p id="number-display"></p>
+		</div>
+
+		<div class="screen-memory">
+			<p id="memory-display" style="display: none;">M</p>
+		</div>
+
+		<div class="memory-buttons">
+			<button memory-buttons id="memory-clear">MC</button>
+			<button memory-buttons id="memory-recall">MR</button>
+			<button memory-buttons id="memory-store">MS</button>
+			<button memory-buttons id="memory-add">M+</button>
+		</div>
+
+		<div class="cleansing-buttons">
+			<button cleansing-buttons id="backspace">Back</button>
+			<button cleansing-buttons id="clear-entry">CE</button>
+			<button cleansing-buttons id="clear-all">C</button>
+		</div>
+
+		<div class="calculate-buttons">
+			<button class="numbers">7</button>
+			<button class="numbers">8</button>
+			<button class="numbers">9</button>
+			<button basic-operators operation="division">/</button>
+			<button advanced-operators operation="square-root">sqrt</button>
+			<button class="numbers">4</button>
+			<button class="numbers">5</button>
+			<button class="numbers">6</button>
+			<button basic-operators operation="multiplication">*</button>
+			<button advanced-operators operation="percent">%</button>
+			<button class="numbers">1</button>
+			<button class="numbers">2</button>
+			<button class="numbers">3</button>
+			<button basic-operators operation="subtraction">
+				--
+			</button>
+			<button advanced-operators operation="reciprocal">
+				1/x
+			</button>
+			<button class="numbers">0</button>
+			<button class="numbers">+/-</button>
+			<button class="numbers">.</button>
+			<button basic-operators operation="addition">+</button>
+			<button basic-operators operation="equals">=</button>
+		</div>
+	</div>
+
+	<div class="image"></div>
+</body>
+
+</html>

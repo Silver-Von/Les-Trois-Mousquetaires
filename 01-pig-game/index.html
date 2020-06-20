@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PIG GAME</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="paper">
+			<h1 class="title">PIG GAME</h1>
+			<div class="players">
+				<div id="player-1">
+					<h2 id="p1-name">Player 1</h2>
+					<p id="p1-total-points">0</p>
+					<div class="p1-current">
+						<p id="p1-current-points">0</p>
+					</div>
+				</div>
+				<div id="player-2">
+					<h2 id="p2-name">Player 2</h2>
+					<p id="p2-total-points">0</p>
+					<div class="p2-current">
+						<p id="p2-current-points">0</p>
+					</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<button class="btn-roll">ROLL</button>
+				<button class="btn-hold">HOLD</button>
+				<button class="btn-new">NEW GAME</button>
+			</div>
+			<img src="assets/images/dice-1.svg" alt="Dice" id="dice" />
+		</div>
+
+		<div class="corner-ul-ur"></div>
+		<div class="corner-bl-br"></div>
+	</div>
+	<script src="app.js"></script>
+</body>
+
+</html>

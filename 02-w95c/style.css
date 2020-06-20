@@ -1,0 +1,545 @@
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url(assets/mss.ttf);
+}
+*,
+*::before,
+*::after {
+  font-family: "MS Sans Serif";
+  font-size: 62.5%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* :focus {
+  outline: none !important;
+}
+
+body {
+  background-color: #047c84;
+}
+
+#app {
+  width: 552px;
+  height: 544px;
+  background-color: #c0c0c0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#app::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 3px solid #afafaf;
+  border-left: 3px solid #afafaf;
+  border-right: 3px solid #202020;
+  border-bottom: 3px solid #202020;
+}
+#app::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  border-top: 3px solid #efefef;
+  border-left: 3px solid #efefef;
+  border-right: 3px solid #606060;
+  border-bottom: 3px solid #606060;
+}
+#app :nth-child(n) {
+  position: relative;
+}
+#app .bar {
+  width: 540px;
+  height: 36px;
+  background-color: #12007b;
+  top: 6px;
+  left: 6px;
+  z-index: 1;
+}
+#app .bar::before {
+  content: "";
+  width: 32px;
+  height: 24px;
+  background-image: url(assets/images/icon.svg);
+  background-size: contain;
+  position: absolute;
+  top: 6px;
+  left: 4px;
+}
+#app .bar::after {
+  content: "Calculator";
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #efefef;
+  position: absolute;
+  top: 6px;
+  left: 42px;
+}
+#app .bar .window-control-buttons {
+  width: 100px;
+  height: 28px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  flex-direction: row;
+}
+#app .bar .window-control-buttons :nth-child(n) {
+  width: 32px;
+  height: 100%;
+  background-color: #c0c0c0;
+  border: none;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  padding-top: 4px;
+  padding-left: 4px;
+  background-size: contain;
+}
+#app .bar .window-control-buttons :nth-child(n):active {
+  padding-top: 2px;
+  padding-left: 6px;
+  background-position-x: 2px;
+  background-position-y: 2px;
+}
+#app .bar .window-control-buttons :nth-child(n)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 1px solid #afafaf;
+  border-left: 1px solid #afafaf;
+  border-right: 1px solid #202020;
+  border-bottom: 1px solid #202020;
+}
+#app .bar .window-control-buttons :nth-child(n)::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  border-top: 1px solid #efefef;
+  border-left: 1px solid #efefef;
+  border-right: 1px solid #606060;
+  border-bottom: 1px solid #606060;
+}
+#app .bar .window-control-buttons :nth-child(n):active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 1px solid #606060;
+  border-left: 1px solid #606060;
+  border-right: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+#app .bar .window-control-buttons :nth-child(n):active::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  border-top: 1px solid #202020;
+  border-left: 1px solid #202020;
+  border-right: 1px solid #afafaf;
+  border-bottom: 1px solid #afafaf;
+}
+#app .bar .window-control-buttons :nth-child(n):nth-child(1) {
+  background-image: url(assets/images/btn-min.svg);
+}
+#app .bar .window-control-buttons :nth-child(n):nth-child(2) {
+  background-image: url(assets/images/btn-max.svg);
+}
+#app .bar .window-control-buttons :nth-child(n):nth-child(3) {
+  background-image: url(assets/images/btn-close.svg);
+  position: absolute;
+  right: 0;
+}
+#app .menu {
+  width: 196px;
+  height: 36px;
+  position: absolute;
+  top: 44px;
+  left: 6px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#app .menu :nth-child(n) {
+  width: calc(196px / 3);
+  height: 100%;
+  background: none;
+  border: none;
+  font-size: 2.1rem;
+  letter-spacing: 0.1rem;
+  color: #202020;
+  padding-left: 4px;
+}
+#app .menu :nth-child(n)::first-letter {
+  text-decoration: underline;
+}
+#app .menu :nth-child(n):active {
+  background-color: #12007b;
+  color: #efefef;
+}
+#app .divide-line {
+  width: 536px;
+  height: 4px;
+  background-color: #efefef;
+  top: 56px;
+  left: 8px;
+}
+#app .divide-line::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #808080;
+  position: absolute;
+}
+#app .screen-number {
+  width: 498px;
+  height: 54px;
+  background-color: #efefef;
+  top: 82px;
+  left: 28px;
+}
+#app .screen-number::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #606060;
+  border-left: 2px solid #606060;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+#app .screen-number::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #202020;
+  border-left: 2px solid #202020;
+  border-right: 2px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
+}
+#app .screen-number :nth-child(n) {
+  font-size: 2.2rem;
+  line-height: 54px;
+  color: #202020;
+  position: absolute;
+  right: 14px;
+}
+#app .screen-memory {
+  width: 72px;
+  height: 54px;
+  top: 93px;
+  left: 28px;
+}
+#app .screen-memory::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #606060;
+  border-left: 2px solid #606060;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+#app .screen-memory::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #202020;
+  border-left: 2px solid #202020;
+  border-right: 2px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
+}
+#app .screen-memory :nth-child(n) {
+  font-size: 2.4rem;
+  font-weight: thin;
+  line-height: 58px;
+  text-align: center;
+  color: #202020;
+  padding-left: 2px;
+}
+#app .memory-buttons {
+  width: 72px;
+  height: 260px;
+  top: 106px;
+  left: 28px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#app .memory-buttons :nth-child(n) {
+  width: 72px;
+  height: 56px;
+  background-color: #c0c0c0;
+  border: none;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  padding-top: 4px;
+  padding-left: 4px;
+  color: #ff2100;
+  letter-spacing: 0.2rem;
+}
+#app .memory-buttons :nth-child(n):active {
+  padding-top: 2px;
+  padding-left: 6px;
+  background-position-x: 2px;
+  background-position-y: 2px;
+}
+#app .memory-buttons :nth-child(n)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #afafaf;
+  border-left: 2px solid #afafaf;
+  border-right: 2px solid #202020;
+  border-bottom: 2px solid #202020;
+}
+#app .memory-buttons :nth-child(n)::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #efefef;
+  border-left: 2px solid #efefef;
+  border-right: 2px solid #606060;
+  border-bottom: 2px solid #606060;
+}
+#app .memory-buttons :nth-child(n):active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #606060;
+  border-left: 2px solid #606060;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+#app .memory-buttons :nth-child(n):active::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #202020;
+  border-left: 2px solid #202020;
+  border-right: 2px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
+}
+#app .cleansing-buttons {
+  width: 312px;
+  height: 58px;
+  position: absolute;
+  top: 184px;
+  right: 28px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#app .cleansing-buttons :nth-child(n) {
+  width: 100px;
+  height: 58px;
+  background-color: #c0c0c0;
+  border: none;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  padding-top: 4px;
+  padding-left: 4px;
+  color: #800b00;
+  letter-spacing: 0.2rem;
+}
+#app .cleansing-buttons :nth-child(n):active {
+  padding-top: 2px;
+  padding-left: 6px;
+  background-position-x: 2px;
+  background-position-y: 2px;
+}
+#app .cleansing-buttons :nth-child(n)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #afafaf;
+  border-left: 2px solid #afafaf;
+  border-right: 2px solid #202020;
+  border-bottom: 2px solid #202020;
+}
+#app .cleansing-buttons :nth-child(n)::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #efefef;
+  border-left: 2px solid #efefef;
+  border-right: 2px solid #606060;
+  border-bottom: 2px solid #606060;
+}
+#app .cleansing-buttons :nth-child(n):active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #606060;
+  border-left: 2px solid #606060;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+#app .cleansing-buttons :nth-child(n):active::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #202020;
+  border-left: 2px solid #202020;
+  border-right: 2px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
+}
+#app .calculate-buttons {
+  width: 394px;
+  height: 258px;
+  position: absolute;
+  top: 254px;
+  right: 26px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(8px, auto);
+  gap: 14px 6px;
+}
+#app .calculate-buttons :nth-child(n) {
+  width: 72px;
+  height: 56px;
+  background-color: #c0c0c0;
+  border: none;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  padding-top: 4px;
+  padding-left: 4px;
+  letter-spacing: 0.2rem;
+}
+#app .calculate-buttons :nth-child(n):active {
+  padding-top: 2px;
+  padding-left: 6px;
+  background-position-x: 2px;
+  background-position-y: 2px;
+}
+#app .calculate-buttons :nth-child(n)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #afafaf;
+  border-left: 2px solid #afafaf;
+  border-right: 2px solid #202020;
+  border-bottom: 2px solid #202020;
+}
+#app .calculate-buttons :nth-child(n)::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #efefef;
+  border-left: 2px solid #efefef;
+  border-right: 2px solid #606060;
+  border-bottom: 2px solid #606060;
+}
+#app .calculate-buttons :nth-child(n):active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-top: 2px solid #606060;
+  border-left: 2px solid #606060;
+  border-right: 2px solid #efefef;
+  border-bottom: 2px solid #efefef;
+}
+#app .calculate-buttons :nth-child(n):active::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-top: 2px solid #202020;
+  border-left: 2px solid #202020;
+  border-right: 2px solid #afafaf;
+  border-bottom: 2px solid #afafaf;
+}
+#app .calculate-buttons :nth-child(n):nth-child(-n+3), #app .calculate-buttons :nth-child(n):nth-child(n+6):nth-child(-n+8), #app .calculate-buttons :nth-child(n):nth-child(n+11):nth-child(-n+13), #app .calculate-buttons :nth-child(n):nth-child(n+16):nth-child(-n+18) {
+  color: #0433ff;
+}
+#app .calculate-buttons :nth-child(n):nth-child(4), #app .calculate-buttons :nth-child(n):nth-child(9), #app .calculate-buttons :nth-child(n):nth-child(14), #app .calculate-buttons :nth-child(n):nth-child(19), #app .calculate-buttons :nth-child(n):nth-child(20) {
+  letter-spacing: -2px;
+  color: #ff2100;
+}
+#app .calculate-buttons :nth-child(n):nth-child(5), #app .calculate-buttons :nth-child(n):nth-child(10), #app .calculate-buttons :nth-child(n):nth-child(15) {
+  color: #001480;
+}
+
+/* .image {
+	width: 552px;
+	height: 544px;
+	background-image: url(assets/images/calculator.png);
+	background-size: contain;
+
+	@include center;
+
+	opacity: 0.5;
+} */

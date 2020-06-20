@@ -1,0 +1,10 @@
+@mixin on-hover {
+	background-color: $color-dark-gray;
+	color: $color-white;
+	cursor: pointer;
+}
+
+@mixin on-click {
+	transform: scale(0.95);
+	box-shadow: none;
+}

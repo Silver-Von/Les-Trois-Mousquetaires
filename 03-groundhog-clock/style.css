@@ -1,0 +1,325 @@
+*,
+*::before,
+*::after {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+  color: #eee;
+  text-align: center;
+  text-shadow: 0 0 2px #222, 0 0 2px #222, 0 0 2px #222, 0 0 2px #222;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* :focus {
+  outline: none !important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(circle, #56ccf2 0%, #2f80ed 100%);
+}
+
+.clock-container {
+  width: 720px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.clock-container::before, .clock-container::after {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  text-shadow: none;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  left: -64px;
+}
+.clock-container::before {
+  content: "AM";
+  top: 24.5px;
+}
+.clock-container::after {
+  content: "PM";
+  bottom: 24.5px;
+}
+.clock-container .seconds-container {
+  width: 220px;
+  height: 100%;
+  perspective: 1200px;
+  position: absolute;
+  right: 0px;
+}
+.clock-container .seconds-container .fixed-s-container {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  z-index: -1;
+  position: absolute;
+}
+.clock-container .seconds-container .fixed-s-container :nth-child(n) {
+  width: 100%;
+  height: 49.5%;
+  border-radius: 4px;
+  font-size: 16rem;
+  overflow: hidden;
+  position: absolute;
+}
+.clock-container .seconds-container .fixed-s-container :nth-child(1) {
+  background: linear-gradient(180deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(180deg, #444 0%, #555 66%);
+  line-height: 200px;
+}
+.clock-container .seconds-container .fixed-s-container :nth-child(2) {
+  background: linear-gradient(0deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(0deg, #444 0%, #555 66%);
+  line-height: 0px;
+  bottom: 0px;
+}
+.clock-container .seconds-container .fixed-s-container :nth-child(3) {
+  width: 100%;
+  height: 40px;
+  background-color: #000;
+  filter: blur(32px);
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+  transform-origin: 0% 0%;
+}
+.clock-container .seconds-container #flexible-s-container {
+  width: 100%;
+  height: 49.5%;
+  z-index: 1;
+  transform-origin: 0% 101%;
+  transform-style: preserve-3d;
+}
+.clock-container .seconds-container #flexible-s-container :nth-child(n) {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  font-size: 16rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+}
+.clock-container .seconds-container #flexible-s-container :nth-child(1) {
+  background: linear-gradient(180deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(180deg, #444 0%, #555 66%);
+  line-height: 200px;
+}
+.clock-container .seconds-container #flexible-s-container :nth-child(2) {
+  background: linear-gradient(0deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(0deg, #444 0%, #555 66%);
+  transform: rotateX(180deg);
+  line-height: 0px;
+}
+.clock-container .minutes-container {
+  width: 220px;
+  height: 100%;
+  perspective: 1200px;
+  position: absolute;
+  left: 250px;
+}
+.clock-container .minutes-container .fixed-m-container {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  z-index: -1;
+  position: absolute;
+}
+.clock-container .minutes-container .fixed-m-container :nth-child(n) {
+  width: 100%;
+  height: 49.5%;
+  border-radius: 4px;
+  font-size: 16rem;
+  overflow: hidden;
+  position: absolute;
+}
+.clock-container .minutes-container .fixed-m-container :nth-child(1) {
+  background: linear-gradient(180deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(180deg, #444 0%, #555 66%);
+  line-height: 200px;
+}
+.clock-container .minutes-container .fixed-m-container :nth-child(2) {
+  background: linear-gradient(0deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(0deg, #444 0%, #555 66%);
+  line-height: 0px;
+  bottom: 0px;
+}
+.clock-container .minutes-container .fixed-m-container :nth-child(3) {
+  width: 100%;
+  height: 40px;
+  background-color: #000;
+  filter: blur(32px);
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+  transform-origin: 0% 0%;
+}
+.clock-container .minutes-container #flexible-m-container {
+  width: 100%;
+  height: 49.5%;
+  z-index: 1;
+  transform-origin: 0% 101%;
+  transform-style: preserve-3d;
+}
+.clock-container .minutes-container #flexible-m-container :nth-child(n) {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  font-size: 16rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+}
+.clock-container .minutes-container #flexible-m-container :nth-child(1) {
+  background: linear-gradient(180deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(180deg, #444 0%, #555 66%);
+  line-height: 200px;
+}
+.clock-container .minutes-container #flexible-m-container :nth-child(2) {
+  background: linear-gradient(0deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(0deg, #444 0%, #555 66%);
+  transform: rotateX(180deg);
+  line-height: 0px;
+}
+.clock-container .hours-container {
+  width: 220px;
+  height: 100%;
+  perspective: 1200px;
+  position: absolute;
+  left: 0px;
+}
+.clock-container .hours-container .fixed-h-container {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.25));
+  -webkit-filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  z-index: -1;
+  position: absolute;
+}
+.clock-container .hours-container .fixed-h-container :nth-child(n) {
+  width: 100%;
+  height: 49.5%;
+  border-radius: 4px;
+  font-size: 16rem;
+  overflow: hidden;
+  position: absolute;
+}
+.clock-container .hours-container .fixed-h-container :nth-child(1) {
+  background: linear-gradient(180deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(180deg, #444 0%, #555 66%);
+  line-height: 200px;
+}
+.clock-container .hours-container .fixed-h-container :nth-child(2) {
+  background: linear-gradient(0deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(0deg, #444 0%, #555 66%);
+  line-height: 0px;
+  bottom: 0px;
+}
+.clock-container .hours-container .fixed-h-container :nth-child(3) {
+  width: 100%;
+  height: 40px;
+  background-color: #000;
+  filter: blur(32px);
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+  transform-origin: 0% 0%;
+}
+.clock-container .hours-container #flexible-h-container {
+  width: 100%;
+  height: 49.5%;
+  z-index: 1;
+  transform-origin: 0% 101%;
+  transform-style: preserve-3d;
+}
+.clock-container .hours-container #flexible-h-container :nth-child(n) {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  font-size: 16rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+}
+.clock-container .hours-container #flexible-h-container :nth-child(1) {
+  background: linear-gradient(180deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(180deg, #444 0%, #555 66%);
+  line-height: 200px;
+}
+.clock-container .hours-container #flexible-h-container :nth-child(2) {
+  background: linear-gradient(0deg, #444 0%, #555 66%);
+  background: -moz-linear-gradient(0deg, #444 0%, #555 66%);
+  transform: rotateX(180deg);
+  line-height: 0px;
+}
+.clock-container .format-switch {
+  width: 56px;
+  height: 32px;
+  border-radius: 16px;
+  border: 2px solid #fff;
+  opacity: 0.75;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 240px);
+}
+.clock-container .format-switch #format-switch-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  color: #4fbcf1;
+  text-shadow: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 24px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+}
+
+.flipping {
+  transition: transform 0.75s cubic-bezier(0.8, 0, 1, 0.7);
+  transform: rotateX(-180deg);
+}
+
+.move {
+  transition: transform 0.75s cubic-bezier(0.8, 0, 1, 0.5);
+  transform: translateY(200px);
+}
+
+.switch-12 {
+  transition: transform 0.2s ease-in;
+  transform: translateX(-24px);
+}
+
+.switch-24 {
+  transition: transform 0.2s ease-in;
+  transform: translateX(0px);
+}

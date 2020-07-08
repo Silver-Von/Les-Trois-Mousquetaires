@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Clock</title>
+</head>
+
+<body>
+  <div class="clock-container">
+    <div class="seconds-container">
+      <div class="fixed-s-container">
+        <div id="fixed-s-n-a"></div>
+        <div id="fixed-s-n-b"></div>
+        <div class="shadow"></div>
+      </div>
+
+      <div id="flexible-s-container">
+        <div id="flexible-s-n-f"></div>
+        <div id="flexible-s-n-b"></div>
+      </div>
+    </div>
+
+    <div class="minutes-container">
+      <div class="fixed-m-container">
+        <div id="fixed-m-n-a"></div>
+        <div id="fixed-m-n-b"></div>
+        <div class="shadow"></div>
+      </div>
+
+      <div id="flexible-m-container">
+        <div id="flexible-m-n-f"></div>
+        <div id="flexible-m-n-b"></div>
+      </div>
+    </div>
+
+    <div class="hours-container">
+      <div class="fixed-h-container">
+        <div id="fixed-h-n-a"></div>
+        <div id="fixed-h-n-b"></div>
+        <div class="shadow"></div>
+      </div>
+
+      <div id="flexible-h-container">
+        <div id="flexible-h-n-f"></div>
+        <div id="flexible-h-n-b"></div>
+      </div>
+    </div>
+
+    <div class="format-switch">
+      <div id="format-switch-button">24</div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!-- assignment to innerHTML causes the destruction of all child elements, -->
